@@ -1,0 +1,6 @@
+*.pt
+*.pth
+runs/
+__pycache__/
+.venv/
+yolo_car_damage/
