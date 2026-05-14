@@ -5,4 +5,4 @@ Os links estão disponíveis no Readme.
 Os arquivos foram testados em ambiente Windows, no diretório "C:\CODIGOSAR\".
 A documentação acadêmica (Powerpoint, PDF, Notebook Jupyter, etc.) será feita separadamente, caso seja sugerido para a apresentação ao público.
 - Cauê Menezes
-Visão Computacional - UNIFESP 2026
+- Visão Computacional - UNIFESP 2026
