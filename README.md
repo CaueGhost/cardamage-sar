@@ -1,5 +1,5 @@
 # Detecção de Danos em Carros com Deep Learning
-**Autor:** Cauê Eberspächer Menezes  
+**Autor:** Cauê Menezes  
 **Disciplina:** Visão Computacional — UNIFESP  
 **Linguagem:** Python 3.14
 
