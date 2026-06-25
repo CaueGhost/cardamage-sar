@@ -123,29 +123,35 @@ Geometricamente, isso "deforma" o espaço dos dados. Uma forma clássica de visu
 
 ## Resultados
 
-| Modelo | Detecções corretas (val) | Taxa de acerto | Loss final | Épocas | Tempo de execução* |
-|---|---|---|---|---|---|
-| YOLOv8 | 0/24 | 0% | — | 13 (early stop) | 4m41s |
-| Faster R-CNN | 15/24 | 62.5% | 0.1066 | 15 | 51m22s |
-| **Mask R-CNN** | **20/24** | **83.3%** | **0.2492** | **15** | 49m11s |
+### Detecção (avaliação em todas as 24 anotações de dano da validação)
 
-\* Tempo medido em CPU (Intel Xeon E5-2680 v4), do início do treino até a avaliação completa em todas as imagens de validação.
+| Modelo | Detecções | Acertos | Precision | Recall (Taxa de acerto) | F1 | Épocas |
+|---|---|---|---|---|---|---|
+| YOLOv8 | 44 | 20/24 | 45.5% | **83.3%** | 58.8% | 22 (early stop) |
+| Faster R-CNN | 13 | 13/24 | **100%** | 54.2% | **70.3%** | 15 |
+| Mask R-CNN | 19 | 14/24 | 73.7% | 58.3% | 65.1% | 15 |
+
+> **Precision** = Acertos / Detecções (quão confiável é cada alerta do modelo)
+> **Recall** = Acertos / Danos reais (quantos danos o modelo realmente encontra)
+> **F1** = média harmônica entre Precision e Recall (equilíbrio entre os dois)
 
 ### Conclusão
 
-O **Mask R-CNN** obteve o melhor desempenho, detectando 20 dos 24 danos reais na validação (83.3%). Isso se deve ao fato de o modelo aprender também a segmentar o contorno exato dos danos, o que força a rede a compreender melhor a forma dos amassados.
+Não há um vencedor único — o melhor modelo depende da métrica priorizada:
 
-O **Faster R-CNN** ficou em segundo lugar com 62.5% de acerto, enquanto o **YOLOv8** não generalizou para a validação, possivelmente por ter parado muito cedo (época 3) devido ao dataset reduzido.
+- **Recall**: o **YOLOv8** vence (83.3%) — encontra a maior parte dos danos reais, ao custo de muitos falsos positivos (44 detecções para 24 danos reais).
+- **Precision**: o **Faster R-CNN** vence (100%) — toda detecção que ele faz está correta, mas é conservador e deixa passar quase metade dos danos reais.
+- **F1 (equilíbrio geral)**: o **Faster R-CNN** vence (70.3%) — o melhor compromisso entre não gerar alarmes falsos e ainda encontrar a maioria dos danos, seguido de perto pelo Mask R-CNN (65.1%).
 
-Em compensação, o **YOLOv8** é disparadamente o mais rápido dos três (menos de 5 minutos contra quase 1 hora dos outros dois) — o que evidencia o clássico trade-off entre velocidade e precisão em deep learning. Faster R-CNN e Mask R-CNN levam tempos parecidos entre si, então o Mask R-CNN venceu sem custo extra de tempo significativo, tornando-o a melhor escolha geral neste cenário.
+Em um cenário prático, a escolha do modelo dependeria do objetivo do negócio: uma seguradora que não pode deixar nenhum dano passar sem inspeção priorizaria **Recall** (YOLOv8); uma oficina que quer evitar abrir ordens de serviço desnecessárias priorizaria **Precision** (Faster R-CNN), que neste caso também entrega o melhor equilíbrio geral (F1).
 
-> Todos os modelos foram treinados com apenas 59 imagens de treino — um dataset pequeno para deep learning. O objetivo do trabalho é a **comparação entre métodos**, não atingir precisão máxima.
+> Todos os modelos foram treinados com apenas 59 imagens de treino — um dataset pequeno para deep learning, o que explica a variabilidade dos resultados entre execuções (o treino de redes neurais tem componentes aleatórios, como a inicialização dos pesos). O objetivo do trabalho é a **comparação entre métodos**, não atingir precisão máxima.
 
 ---
 
 ## Observações técnicas
 
-- Todos os modelos foram treinados em **CPU** (Intel Xeon E5-2680 v4 @ 2.40GHz)
+- Os modelos foram treinados em **CPU**; o hardware específico pode variar entre execuções (ex: Intel Xeon E5-2680 v4 ou Intel Core i7-13620H) — ao comparar **tempo de treino** entre os três modelos, use medições feitas na mesma máquina para manter a comparação justa.
 - Faster R-CNN e Mask R-CNN utilizaram backbone **ResNet50 pré-treinado no COCO**
 - YOLOv8 utilizou o modelo **YOLOv8n** (nano) pré-treinado
 - Tempo médio de treino por modelo: ~15 minutos na CPU
