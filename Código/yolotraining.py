@@ -161,3 +161,16 @@ taxa = acertos / total_reais * 100 if total_reais > 0 else 0
 print(f"  Taxa de acerto       : {taxa:.1f}%")
 print(f"  Imagens salvas em    : {OUT}")
 print("=" * 45)
+
+# ── Salva o resumo em arquivo de texto (evita perder o resultado se o
+#    terminal fechar antes de copiar manualmente) ────────────────────────────────
+resumo_path = os.path.join(OUT, "resumo_final.txt")
+with open(resumo_path, "w", encoding="utf-8") as f:
+    f.write("RESULTADO FINAL — YOLOv8\n")
+    f.write("=" * 45 + "\n")
+    f.write(f"Imagens avaliadas    : {len(val_data['images'])}\n")
+    f.write(f"Danos reais (total)  : {total_reais}\n")
+    f.write(f"Detecções (conf>0.1) : {total_detec}\n")
+    f.write(f"Acertos estimados    : {acertos}/{total_reais}\n")
+    f.write(f"Taxa de acerto       : {taxa:.1f}%\n")
+print(f"Resumo também salvo em: {resumo_path}")

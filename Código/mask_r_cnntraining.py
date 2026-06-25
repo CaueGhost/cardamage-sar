@@ -113,19 +113,16 @@ EPOCHS = 15
 for epoch in range(EPOCHS):
     model.train()
     total_loss = 0
-    loop = tqdm(train_loader, desc=f"local {epoch+1}/{EPOCHS}", unit="batch")
+    loop = tqdm(train_loader, desc=f"Época {epoch+1}/{EPOCHS}", unit="batch")
     for imgs, targets in loop:
-        imgs = [i.to(device) for i in imgs]
+        imgs    = [i.to(device) for i in imgs]
         targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
-        loss_dict = model(imgs, targets)
-        loss = sum(loss_dict.values())
-
+        loss_dict  = model(imgs, targets)
+        loss       = sum(loss_dict.values())
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-
         total_loss += loss.item()
-
         loop.set_postfix(loss=f"{loss.item():.4f}")
     print(f"  → Loss médio: {total_loss / len(train_loader):.4f}")
 
@@ -149,16 +146,10 @@ anns_por_img = {}
 for ann in val_data["annotations"]:
     anns_por_img.setdefault(ann["image_id"], []).append(ann)
 
-    for img_info in tqdm(val_data["images"], desc="Avaliando", unit="img"):
-
-        img_path = os.path.join(BASE, "img", img_info["file_name"])
-
-        print("Arquivo:", img_info["file_name"])
-        print("Caminho:", img_path)
-        print("Existe?:", os.path.exists(img_path))
-
-        if not os.path.exists(img_path):
-            continue
+for img_info in tqdm(val_data["images"], desc="Avaliando", unit="img"):
+    img_path = os.path.join(BASE, "val", img_info["file_name"])
+    if not os.path.exists(img_path):
+        continue
 
     img_pil    = Image.open(img_path).convert("RGB")
     img_tensor = TF.to_tensor(img_pil).to(device)
@@ -209,6 +200,8 @@ for ann in val_data["annotations"]:
     plt.close()
 
 # ── Resumo final ────────────────────────────────────────────────────────────────
+taxa = acertos / total_reais * 100 if total_reais > 0 else 0
+
 print("\n" + "=" * 45)
 print("     RESULTADO FINAL — Mask R-CNN")
 print("=" * 45)
@@ -216,6 +209,20 @@ print(f"  Imagens avaliadas    : {len(val_data['images'])}")
 print(f"  Danos reais (total)  : {total_reais}")
 print(f"  Detecções (conf>0.5) : {total_detec}")
 print(f"  Acertos estimados    : {acertos}/{total_reais}")
-print(f"  Taxa de acerto       : {acertos/total_reais*100:.1f}%")
+print(f"  Taxa de acerto       : {taxa:.1f}%")
 print(f"  Imagens salvas em    : {OUT}")
+print("=" * 45)
+
+# ── Salva o resumo em arquivo de texto (evita perder o resultado se o
+#    terminal fechar antes de copiar manualmente) ────────────────────────────────
+resumo_path = os.path.join(OUT, "resumo_final.txt")
+with open(resumo_path, "w", encoding="utf-8") as f:
+    f.write("RESULTADO FINAL — Mask R-CNN\n")
+    f.write("=" * 45 + "\n")
+    f.write(f"Imagens avaliadas    : {len(val_data['images'])}\n")
+    f.write(f"Danos reais (total)  : {total_reais}\n")
+    f.write(f"Detecções (conf>0.5) : {total_detec}\n")
+    f.write(f"Acertos estimados    : {acertos}/{total_reais}\n")
+    f.write(f"Taxa de acerto       : {taxa:.1f}%\n")
+print(f"Resumo também salvo em: {resumo_path}")
 print("=" * 45)
