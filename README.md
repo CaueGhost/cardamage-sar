@@ -151,7 +151,7 @@ Em um cenário prático, a escolha do modelo dependeria do objetivo do negócio:
 
 ## Observações técnicas
 
-- Os modelos foram treinados em **CPU**; o hardware específico pode variar entre execuções (ex: Intel Xeon E5-2680 v4 ou Intel Core i7-13620H) — ao comparar **tempo de treino** entre os três modelos, use medições feitas na mesma máquina para manter a comparação justa.
+- Os modelos foram treinados em **CPU**; o hardware específico pode variar entre execuções (na fase inicial, Intel Xeon E5-2680 v4, e para a fase final, Intel Core i7-13620H + NVIDIA Geforce RTX 4050) — ao comparar **tempo de treino** entre os três modelos, use medições feitas na mesma máquina para manter a comparação justa.
 - Faster R-CNN e Mask R-CNN utilizaram backbone **ResNet50 pré-treinado no COCO**
 - YOLOv8 utilizou o modelo **YOLOv8n** (nano) pré-treinado
 - Tempo médio de treino por modelo: ~15 minutos na CPU
