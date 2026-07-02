@@ -88,7 +88,7 @@ Para explicar **como** os modelos aprendem a detectar danos, vale destacar quatr
 
 ### Redes neurais convolucionais (CNNs)
 
-Um dos principais avanços na Visão Computacional foi o desenvolvimento das Redes Neurais Convolucionais (CNNs), que superam as limitações dos classificadores lineares fully-connected. Como destacado por Johnson (2019, Lecture 7), ao contrário do procedimento de flatten (alongamento da imagem em um vetor unidimensional), que descarta a estrutura espacial dos dados, as CNNs operam diretamente sobre a disposição bidimensional dos pixels por meio de operações locais.
+Um dos principais avanços na Visão Computacional foi o desenvolvimento das Redes Neurais Convolucionais (CNNs), que superam as limitações dos classificadores lineares fully-connected. Como destacado por Johnson (2019), ao contrário do procedimento de flatten (alongamento da imagem em um vetor unidimensional), que descarta a estrutura espacial dos dados, as CNNs operam diretamente sobre a disposição bidimensional dos pixels por meio de operações locais.
 Os componentes essenciais incluem:
 
 - Camadas de Convolução: Filtros (kernels) deslizam sobre a imagem, detectando padrões locais (bordas, texturas). Filtros sucessivos aumentam o receptive field.
@@ -160,9 +160,9 @@ Em um cenário prático, a escolha do modelo dependeria do objetivo do negócio:
 ---
 
 ### Referências
-- Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv preprint arXiv:1502.03167.
-- Johnson, J. (2019). CS231n: Convolutional Neural Networks for Visual Recognition [Lecture 7]. Stanford University / Michigan Online.
-- LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278-2324.
+- Ioffe, S.; Szegedy, C. Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv preprint arXiv:1502.03167, 2015.
+- Johnson, J. CS231n: Convolutional Neural Networks for Visual Recognition. Lecture 7. Stanford University / Michigan Online, 2019.
+- LeCun, Y.; Bottou, L.; Bengio, Y.; Haffner, P. Gradient-based learning applied to document recognition. Proceedings of the IEEE, v. 86, n. 11, p. 2278-2324, 1998.
 
 ---
 
