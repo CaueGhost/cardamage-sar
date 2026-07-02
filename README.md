@@ -88,7 +88,16 @@ Para explicar **como** os modelos aprendem a detectar danos, vale destacar quatr
 
 ### Redes neurais convolucionais (CNNs)
 
-Os três modelos são redes neurais convolucionais. Cada camada extrai características visuais cada vez mais abstratas — bordas e texturas nas primeiras camadas, formas e padrões de dano nas camadas finais. O Faster R-CNN e o Mask R-CNN usam o backbone **ResNet50**; o YOLOv8 usa seu próprio backbone (CSPDarknet).
+Um dos principais avanços na Visão Computacional foi o desenvolvimento das Redes Neurais Convolucionais (CNNs), que superam as limitações dos classificadores lineares fully-connected. Como destacado por Johnson (2019, Lecture 7), ao contrário do procedimento de flatten (alongamento da imagem em um vetor unidimensional), que descarta a estrutura espacial dos dados, as CNNs operam diretamente sobre a disposição bidimensional dos pixels por meio de operações locais.
+Os componentes essenciais incluem:
+
+- Camadas de Convolução: Filtros (kernels) deslizam sobre a imagem, detectando padrões locais (bordas, texturas). Filtros sucessivos aumentam o receptive field.
+- Funções de Ativação (ReLU): Introduzem não-linearidade e space warping.
+- Pooling (Max Pooling): Reduz dimensionalidade e confere invariância a pequenas translações.
+- Batch Normalization: Normaliza ativações por mini-batch, acelerando o treino e atuando como regularizador (Ioffe & Szegedy, 2015).
+
+A arquitetura clássica segue [Conv + ReLU + Pool] × N seguido de camadas fully-connected. Exemplos como LeNet-5 (LeCun et al., 1998) e backbones modernos (ResNet50, CSPDarknet) utilizam esses princípios.
+No presente projeto, os modelos YOLOv8, Faster R-CNN e Mask R-CNN aplicam esses conceitos para extrair características hierárquicas das imagens SAR, transformando pixels brutos em representações onde “amassado” e “sem dano” se tornam distinguíveis.
 
 ### Gradiente descendente estocástico (SGD)
 
@@ -146,6 +155,14 @@ Não há um vencedor único — o melhor modelo depende da métrica priorizada:
 Em um cenário prático, a escolha do modelo dependeria do objetivo do negócio: uma seguradora que não pode deixar nenhum dano passar sem inspeção priorizaria **Recall** (YOLOv8); uma oficina que quer evitar abrir ordens de serviço desnecessárias priorizaria **Precision** (Faster R-CNN), que neste caso também entrega o melhor equilíbrio geral (F1).
 
 > Todos os modelos foram treinados com apenas 59 imagens de treino — um dataset pequeno para deep learning, o que explica a variabilidade dos resultados entre execuções (o treino de redes neurais tem componentes aleatórios, como a inicialização dos pesos). O objetivo do trabalho é a **comparação entre métodos**, não atingir precisão máxima.
+
+
+---
+
+### Referências
+- Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv preprint arXiv:1502.03167.
+- Johnson, J. (2019). CS231n: Convolutional Neural Networks for Visual Recognition [Lecture 7]. Stanford University / Michigan Online.
+- LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278-2324.
 
 ---
 
