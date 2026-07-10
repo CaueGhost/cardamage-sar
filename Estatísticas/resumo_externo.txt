@@ -1,0 +1,54 @@
+RESULTADO FINAL — Experimento Externo
+==================================================
+Imagens avaliadas        : 44
+Detecções YOLOv8         : 154
+Detecções Faster R-CNN   : 66
+Detecções Mask R-CNN     : 56
+
+Detalhes por imagem:
+Imagem                           YOLOv8   Faster     Mask
+----------------------------------------------------------
+img00_jpg.rf.a0a10dce2153b9ea826c269a29f9773c.jpg        4        3        1
+img00_jpg.rf.a0a10dce2153b9ea826c269a29f9773c.jpg        4        3        1
+img0108_jpg.rf.95d795514faff4106d1e8976f1b4a3a9.jpg        0        0        1
+img0108_jpg.rf.95d795514faff4106d1e8976f1b4a3a9.jpg        0        0        1
+img011_jpg.rf.f06b20b6bed1236a46e980cc3b75eaaf.jpg        0        1        0
+img011_jpg.rf.f06b20b6bed1236a46e980cc3b75eaaf.jpg        0        1        0
+img013_jpg.rf.0b07f621e7ea9f627f71130548b2d22b.jpg        3        3        0
+img013_jpg.rf.0b07f621e7ea9f627f71130548b2d22b.jpg        3        3        0
+img0164_jpg.rf.961c623db3994415bb990da97b9cb269.jpg        2        1        1
+img0164_jpg.rf.961c623db3994415bb990da97b9cb269.jpg        2        1        1
+img0171_jpg.rf.7cfa4ab9cff929533676394693c210fc.jpg       10        1        1
+img0171_jpg.rf.7cfa4ab9cff929533676394693c210fc.jpg       10        1        1
+img0178_jpg.rf.8792230e3b3638a0dbc10228aa99291e.jpg        0        0        0
+img0178_jpg.rf.8792230e3b3638a0dbc10228aa99291e.jpg        0        0        0
+img0179_jpg.rf.e865f6e859634de357c9caaae4985bc5.jpg        2        6        1
+img0179_jpg.rf.e865f6e859634de357c9caaae4985bc5.jpg        2        6        1
+img0205_jpg.rf.d176dfff22a7fbf51eb9d441bccf5a21.jpg       16        4        3
+img0205_jpg.rf.d176dfff22a7fbf51eb9d441bccf5a21.jpg       16        4        3
+img0227_jpg.rf.0726e145e51769e99c6f2d8ae04502b2.jpg        3        1        1
+img0227_jpg.rf.0726e145e51769e99c6f2d8ae04502b2.jpg        3        1        1
+img0230_jpg.rf.99885ebfcd3dc19b354a923ecd8026c4.jpg        0        1        2
+img0230_jpg.rf.99885ebfcd3dc19b354a923ecd8026c4.jpg        0        1        2
+img0237_jpg.rf.29506b49246b1f4964fa13ce81566e20.jpg        1        0        2
+img0237_jpg.rf.29506b49246b1f4964fa13ce81566e20.jpg        1        0        2
+img0256_jpg.rf.ec04589fcf892313e824df9ddf169545.jpg        8        1        2
+img0256_jpg.rf.ec04589fcf892313e824df9ddf169545.jpg        8        1        2
+img0260_jpg.rf.f7eb3a3172d6d56501b7f7b7b24aa916.jpg        1        0        1
+img0260_jpg.rf.f7eb3a3172d6d56501b7f7b7b24aa916.jpg        1        0        1
+img0263_jpg.rf.9a9b7ca6080ffa94fb72b4c93b698d8e.jpg        3        0        0
+img0263_jpg.rf.9a9b7ca6080ffa94fb72b4c93b698d8e.jpg        3        0        0
+img0269_jpg.rf.8346f9565321d6b049a68188d2e2e2c7.jpg        3        1        0
+img0269_jpg.rf.8346f9565321d6b049a68188d2e2e2c7.jpg        3        1        0
+img0277_jpg.rf.6eefd4e4604a247e1381d920c2b9cbf7.jpg        4        1        0
+img0277_jpg.rf.6eefd4e4604a247e1381d920c2b9cbf7.jpg        4        1        0
+img02_jpg.rf.c7adbb95d56fb6a2162965f9a74e8fae.jpg        2        3        3
+img02_jpg.rf.c7adbb95d56fb6a2162965f9a74e8fae.jpg        2        3        3
+img0301_jpg.rf.b201cacd9150d4e34d9a21132058eb85.jpg        0        0        3
+img0301_jpg.rf.b201cacd9150d4e34d9a21132058eb85.jpg        0        0        3
+img031_jpg.rf.71e93f72183c283897a28cc3fa9fcfad.jpg        0        0        0
+img031_jpg.rf.71e93f72183c283897a28cc3fa9fcfad.jpg        0        0        0
+img0323_jpg.rf.ee8fbf3e6b5550f4b8a01a150b0a013e.jpg        6        0        0
+img0323_jpg.rf.ee8fbf3e6b5550f4b8a01a150b0a013e.jpg        6        0        0
+img0339_jpg.rf.1c7461ad0aebd5b3b3b22191a05160cd.jpg        9        6        6
+img0339_jpg.rf.1c7461ad0aebd5b3b3b22191a05160cd.jpg        9        6        6
