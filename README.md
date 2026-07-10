@@ -21,6 +21,7 @@ Comparar três métodos de deep learning para detectar danos (amassados) em carr
 > ⚠️ Os datasets **não estão incluídos** neste repositório por questões de licença.  
 > Baixe o COCO Car Damage em: https://github.com/datacluster-labs/car-damage-dataset  
 > Baixe o CarDD em: https://github.com/CarDD-USTC/CarDD-USTC.github.io
+> Baixe outros datasets em: https://universe.roboflow.com/search?q=car+damage
 
 ---
 
