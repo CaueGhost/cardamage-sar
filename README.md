@@ -147,8 +147,9 @@ Geometricamente, isso "deforma" o espaço dos dados. Uma forma clássica de visu
 ### Curvas de aprendizado
 
 As curvas de treinamento utilizadas na elaboração do relatório encontram-se na planilha:
+```
 CURVAS DE APRENDIZADO.xlsx
-
+```
 Ela contém:
 - Faster R-CNN
 - Mask R-CNN
@@ -177,9 +178,9 @@ Este projeto possui algumas limitações conhecidas:
 ## Observação
 
 Nenhum dos "outros trabalhos considerados" foram feitos para este projeto, portanto na data de entrega, ficaram apenas as finalidades principais do projeto, que é começar treinando com um dataset e depois treinando com outros, em:
-
+```
 experimento_externo.py
-
+```
 ### Conclusão
 
 Não há um vencedor único — o melhor modelo depende da métrica priorizada:
