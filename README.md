@@ -142,7 +142,43 @@ Geometricamente, isso "deforma" o espaço dos dados. Uma forma clássica de visu
 
 > **Precision** = Acertos / Detecções (quão confiável é cada alerta do modelo)
 > **Recall** = Acertos / Danos reais (quantos danos o modelo realmente encontra)
-> **F1** = média harmônica entre Precision e Recall (equilíbrio entre os dois)
+> **F1** = média harmônica entre Precision e Recall (equilíbrio entre os dois)>
+
+### Curvas de aprendizado
+
+As curvas de treinamento utilizadas na elaboração do relatório encontram-se na planilha:
+CURVAS DE APRENDIZADO.xlsx
+
+Ela contém:
+- Faster R-CNN
+- Mask R-CNN
+- YOLOv8
+- Resumo comparativo
+
+## Limitações
+
+Este projeto possui algumas limitações conhecidas:
+
+- treinamento realizado com apenas 59 imagens;
+- avaliação feita em apenas 11 imagens de validação;
+- IoU não foi implementado nesta versão;
+- os limiares de confiança diferem entre os modelos (0,1 para YOLOv8 e 0,5 para Faster R-CNN e Mask R-CNN).
+
+## Outros trabalhos considerados
+
+- treinamento utilizando CarDD;
+- treinamento utilizando LatinNCAP;
+- treinamento utilizando SyndCar;
+- implementação da métrica IoU;
+- padronização dos thresholds de confiança;
+- utilização de GPU para redução do tempo de treinamento;
+- comparação com métodos não supervisionados (K-Means).
+
+## Observação
+
+Nenhum dos "outros trabalhos considerados" foram feitos para este projeto, portanto na data de entrega, ficaram apenas as finalidades principais do projeto, que é começar treinando com um dataset e depois treinando com outros, em:
+
+experimento_externo.py
 
 ### Conclusão
 
